@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Eventos magicos</h1>
+<a th:href="@{/evento/formulario}">Nuevo evento mágico</a>
+<a th:href="@{/auditoria/listar}">Auditoria</a>
+<a th:href="@{/evento/salir}">Cerrar Sesión</a>
+<div th:if="${error != '0'}">
+  <h3 th:text="'Se ha producido un error al guardar el evento'"></h3>
+</div>
+
+<table class="table table-bordered table-striped mt-4">
+  <thead class="thead-dark">
+  <tr>
+    <th>ID</th>
+    <th>Lugar</th>
+    <th>Hechizo</th>
+    <th>Mago</th>
+    <th>Tipo</th>
+    <th>Grave</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr th:each="evento : ${eventosMagicos}">
+    <td th:text="${evento.id}">1</td>
+    <td th:text="${evento.lugar}">Lugar de Ejemplo</td>
+    <td th:text="${evento.hechizo}">Hechizo de Ejemplo</td>
+    <td th:text="${evento.mago}">Mago Ejemplo</td>
+    <td th:text="${evento.tipo}">Tipo de Ejemplo</td>
+    <td th:text="${evento.grave ? 'Sí' : 'No'}">Sí</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

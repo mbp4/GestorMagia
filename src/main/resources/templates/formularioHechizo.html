@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Crear Nuevo Evento Mágico</h1>
+    <form th:action="@{/evento/guardar}" th:object="${eventoMagico}" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="lugar">Lugar</label>
+            <input type="text" id="lugar" th:field="*{lugar}" class="form-control" placeholder="Ingrese el lugar" required>
+        </div>
+
+        <div class="form-group">
+            <label for="hechizo">Hechizo</label>
+            <input type="text" id="hechizo" th:field="*{hechizo}" class="form-control" placeholder="Ingrese el hechizo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mago">Mago</label>
+            <input type="text" id="mago" th:field="*{mago}" class="form-control" placeholder="Ingrese el nombre del mago" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <input type="text" id="tipo" th:field="*{tipo}" class="form-control" placeholder="Ingrese el tipo de evento" required>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" id="grave" th:field="*{grave}" class="form-check-input">
+            <label class="form-check-label" for="grave">Es grave</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Crear Evento</button>
+        <a th:href="@{/evento/volver}" class="btn btn-secondary ml-2">Volver</a>
+    </form>
+
+</div>
+</body>
+</html>
