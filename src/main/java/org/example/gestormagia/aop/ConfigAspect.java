@@ -27,7 +27,7 @@ public class ConfigAspect {
     @Autowired
     private AuditoriaDao auditoriaDao;
 
-    @Around("execution(* org.example.clase.controlador.EventoMagicoController.formulario(..)) || execution(* org.example.clase.controlador.AuditoriaController.list(..))")
+    @Around("execution(* org.example.gestormagia.controlador.EventoMagicoController.formulario(..)) || execution(* org.example.gestormagia.controlador.AuditoriaController.list(..))")
     public Object checkearPermiso(ProceedingJoinPoint joinPoint) throws Throwable {
         String rolUsuario = seguridadServicio.getRolUsuarioActual();
         if (rolUsuario.equals("ROLE_ADMIN")) {
@@ -37,7 +37,7 @@ public class ConfigAspect {
         }
     }
 
-    @AfterReturning(pointcut = "execution(* org.example.clase.servicios.EventoMagicoServicio.guardarEvento(..))", returning = "result")
+    @AfterReturning(pointcut = "execution(* org.example.gestormagia.servicios.EventoMagicoServicio.guardarEvento(..))", returning = "result")
     public void controlErrorGuardado(JoinPoint joinPoint, int result){
         if (result > 0){
             if (result == 1){

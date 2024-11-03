@@ -21,13 +21,13 @@ public class GestorMagiaApplication {
         try {
             if (os.contains("win")) {
                 // Windows
-                Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:8000");
+                Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:8080");
             } else if (os.contains("mac")) {
                 // Mac
-                Runtime.getRuntime().exec("open http://localhost:8000");
+                Runtime.getRuntime().exec("open http://localhost:8080");
             } else if (os.contains("nix") || os.contains("nux")) {
                 // Linux
-                Runtime.getRuntime().exec("xdg-open http://localhost:8000");
+                Runtime.getRuntime().exec("xdg-open http://localhost:8080");
             } else {
                 System.err.println("Sistema operativo no soportado para abrir el navegador.");
             }
