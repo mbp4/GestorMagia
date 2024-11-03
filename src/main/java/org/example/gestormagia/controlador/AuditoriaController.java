@@ -19,7 +19,7 @@ public class AuditoriaController {
 
     @GetMapping("/listar")
     public String list(Model model) {
-        List<Auditoria> auditorias = auditoriaServicio.listadoAuditorias();
+        List<Auditoria> auditorias = auditoriaServicio.listarAuditorias();
         model.addAttribute("auditorias", auditorias);
         return "listaAuditoria";
     }
