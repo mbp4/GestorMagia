@@ -1,6 +1,6 @@
 package org.example.gestormagia.controlador;
 
-import org.example.gestormagia.model.dao.AuditoriaDao;
+import org.example.gestormagia.servicios.AuditoriaServicio;
 import org.example.gestormagia.model.entidades.Auditoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +15,12 @@ import java.util.List;
 public class AuditoriaController {
 
     @Autowired
-    private AuditoriaDao auditoriaDao;
+    private AuditoriaServicio auditoriaServicio;
 
     @GetMapping("/listar")
     public String list(Model model) {
-        List<Auditoria> auditorias = auditoriaDao.findAll();
+        List<Auditoria> auditorias = auditoriaServicio.listadoAuditorias();
         model.addAttribute("auditorias", auditorias);
         return "listaAuditoria";
     }
-
 }
