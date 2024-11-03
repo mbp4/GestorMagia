@@ -4,12 +4,22 @@
 
 **Participantes:** Miriam Blanco Ponce, Sira González-Madroño, Sonia Tejero Recio, Adrián Thierry Puyo Olías y Daniel Sousa
 
+## Funcionamiento de la aplicación
+- Para poder acceder hay que usar un usuario de los ya creados anteriormente. Estos son:
+  - Miri con contraseña 1234 (Admin)
+  - Antonio con contraseña 1234 (Admin)
+  - Pepe con contraseña 1111 (User)
+- En la primera pantalla se podrá ver una lista de hechizos creados y botones para crear más hechizos o ver una auditoría de los eventos mágicos (hechizos creados correctamente o no creados) y para cerrar sesión.
+- Para acceder a las pantallas de Nuevo Hechizo y Auditoría hará falta permisos Admin. Si no, saldrá un mensaje de error 403.
+- En la creación de hechizos se podrá crear cualquier hechizo cuyo mago no sea "Voldemort" o cuyo tipo de hechizo no sea "Pocima".
+- En la auditoría, advertirá de los eventos que hayan sucedido (si se han creado correctamente o si se ha introducido un valor prohibido en algún campo).
+
 
 ## Resumen
 
-- **`GestorMagiaApplication.java`**: Clase principal que inicializa el servidor de Spring Boot y configura la apertura automática del navegador web al puerto 8000.
+- **`GestorMagiaApplication.java`**: Clase principal que inicializa el servidor de Spring Boot y configura la apertura automática del navegador web al puerto 8080.
 - **`MainController.java`**: Controlador que redirige a la página de listado de eventos mágicos en la raíz del proyecto.
-- **`EventoMagicoController.java`**: Controlador encargado de gestionar las operaciones CRUD de los eventos mágicos y la navegación en la aplicación.
+- **`EventoMagicoController.java`**: Controlador encargado de gestionar la creación de los eventos mágicos.
 - **`AuditoriaController.java`**: Proporciona un endpoint para listar los registros de auditoría de eventos mágicos.
 
 ## Módulos Principales
@@ -53,19 +63,27 @@
 
 ## Pantallas
 
-### `index.html`
+### `listaHechizos.html`
 
 - **Descripción**: Página principal que muestra la lista de eventos mágicos registrados.
 - **Funcionalidades**:
   - Listado de eventos con detalles.
-  - Formularios para añadir y gestionar eventos.
-  - Navegación entre la lista de eventos y la vista de auditoría.
+  - Navegación entre la lista de eventos y acceso a la creacion y auditoría de los mismos.
+    
+### `listaAuditoría.html´
+- **Descripción**: Muestra la lista de eventos mágicos.
+- **Funcionalidades**:
+  - Visualizar con detalles la lista de eventos.
 
-### Endpoints Principales
+### `formularioHechizo.html´
+- **Descripción**: Permite la creación de hechizos.
+- **Funcionalidades**:
+ - Formulario de creación de hechizos.
+ - Gestión de eventos en la creación de hechizos.
+   
+### `prohibido.html´
+- **Descripción**: Muestra un mensaje de acceso restringido a aquellos perfiles no autorizados
+- **Funcionalidades**:
+ - Aviso de sección restingida a usuarios con permisos de administrador.   
 
-- **`/evento/list`**: Muestra la lista de eventos mágicos.
-- **`/evento/formulario`**: Carga el formulario para registrar un nuevo evento mágico.
-- **`/evento/guardar`**: Guarda un evento mágico tras validación.
-- **`/auditoria/listar`**: Muestra el listado de registros de auditoría.
-- **`/evento/salir`**: Permite a los usuarios cerrar sesión.
-
+  
